@@ -10,16 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var id = ["1", "2", "3", "8", "9"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationItem.title = "Public List"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
-
+    @IBAction func btOpenList(_ sender: UIButton) {
+        let vc: TableVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TableVC") as! TableVC
+        vc.defaultSel = id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
